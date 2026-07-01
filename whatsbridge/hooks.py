@@ -8,9 +8,9 @@ app_license = "MIT"
 # Includes in <head>
 # ------------------
 
-#doctype_js = {
-#	"Notification" : "public/js/notification.js"
-#}
+doctype_js = {
+	"Notification" : "public/js/notification.js"
+}
 override_doctype_class = {
 	"Notification": "whatsbridge.overrides.notification.G2VirtuNotification"
  }

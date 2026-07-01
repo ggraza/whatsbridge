@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_copy": 1,
  "creation": "2026-06-03 16:43:57.161104",
  "default_view": "List",
  "doctype": "DocType",
@@ -15,7 +16,9 @@
   "account_name",
   "to",
   "url",
-  "send_pdf"
+  "send_pdf",
+  "help_tab",
+  "whatsbridge_settings_help"
  ],
  "fields": [
   {
@@ -71,12 +74,23 @@
    "fieldname": "send_pdf",
    "fieldtype": "Check",
    "label": "Send pdf"
+  },
+  {
+   "fieldname": "help_tab",
+   "fieldtype": "Tab Break",
+   "label": "Help"
+  },
+  {
+   "fieldname": "whatsbridge_settings_help",
+   "fieldtype": "HTML",
+   "label": "WhatsBridge Settings Help"
   }
  ],
+ "icon": "fa fa-whatsapp",
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-06-03 16:47:55.654344",
+ "modified": "2026-07-01 21:42:44.188870",
  "modified_by": "Administrator",
  "module": "G2 Whats Bridge",
  "name": "WhatsBridge Settings",

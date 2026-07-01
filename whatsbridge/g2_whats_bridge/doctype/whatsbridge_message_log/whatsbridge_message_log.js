@@ -2,7 +2,9 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('WhatsBridge Message Log', {
-	// refresh: function(frm) {
-
-	// }
+    onload(frm) {
+        // if (frappe.session.user !== "Administrator") {
+            frm.set_read_only();
+        // }
+    }
 });

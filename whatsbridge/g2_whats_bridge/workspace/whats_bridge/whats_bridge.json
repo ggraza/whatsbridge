@@ -1,0 +1,97 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"6dzLMJ80th\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Whats Bridge</span>\",\"col\":12}},{\"id\":\"MW2iHCzDTH\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"WhatsBridge Message Log\",\"col\":4}},{\"id\":\"MFJ3QEGDK5\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Notification\",\"col\":4}},{\"id\":\"Hoic9IGYae\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"tHWLn_VMu9\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}},{\"id\":\"oFo-cUiaal\",\"type\":\"card\",\"data\":{\"card_name\":\"Notification\",\"col\":4}},{\"id\":\"0BoyIjVYI0\",\"type\":\"card\",\"data\":{\"card_name\":\"WhatsBridge Message Log\",\"col\":4}}]",
+ "creation": "2026-07-01 21:20:36.075306",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "message",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Whats Bridge",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsBridge Settings",
+   "link_count": 0,
+   "link_to": "WhatsBridge Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Notification",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Notification",
+   "link_count": 0,
+   "link_to": "Notification",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsBridge Message Log",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsBridge Message Log",
+   "link_count": 0,
+   "link_to": "WhatsBridge Message Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-07-01 23:26:02.518296",
+ "modified_by": "Administrator",
+ "module": "G2 Whats Bridge",
+ "name": "Whats Bridge",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "WhatsBridge Message Log",
+   "label": "WhatsBridge Message Log",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "Notification",
+   "label": "Notification",
+   "quick_list_filter": "[[\"Notification\",\"channel\",\"=\",\"WhatsBridge\",false]]"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 38.0,
+ "shortcuts": [],
+ "title": "Whats Bridge"
+}
