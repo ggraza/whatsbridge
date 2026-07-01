@@ -9,7 +9,9 @@ import base64
 from frappe.utils import now
 import time
 from frappe import enqueue
-# to send Whatsapp Message and document using ultramsg
+from frappe.utils import now_datetime
+
+# to send Whatsapp Message and document using zender
 from frappe.email.doctype.notification.notification import (
     Notification,
     json as notification_json
@@ -35,14 +37,21 @@ class G2VirtuNotification(Notification):
             as_pdf=True
         )
 
+        filename = f"{doc.name}_{now_datetime().strftime('%Y%m%d_%H%M%S')}.pdf"
+
         file_doc = frappe.get_doc({
             "doctype": "File",
-            "file_name": f"{doc.name}.pdf",
+#            "file_name": f"{doc.name}.pdf",
+            "file_name": filename,
             "content": pdf_content,
-            "is_private": 0
+            "is_private": 0,
+            "attached_to_doctype": doc.doctype,
+            "attached_to_name": doc.name
         })
 
         file_doc.insert(ignore_permissions=True)
+        frappe.msgprint(file_doc.file_name)
+        frappe.msgprint(file_doc.file_url)
 
         return frappe.utils.get_url(file_doc.file_url)
 
