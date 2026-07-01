@@ -8,6 +8,12 @@ app_license = "MIT"
 # Includes in <head>
 # ------------------
 
+#doctype_js = {
+#	"Notification" : "public/js/notification.js"
+#}
+override_doctype_class = {
+	"Notification": "whatsbridge.overrides.notification.G2VirtuNotification"
+ }
 # include js, css files in header of desk.html
 # app_include_css = "/assets/whatsbridge/css/whatsbridge.css"
 # app_include_js = "/assets/whatsbridge/js/whatsbridge.js"
