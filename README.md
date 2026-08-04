@@ -55,11 +55,11 @@ Supported events include:
 
 Before using WhatsBridge, configure your WhatsApp account on **chatbot.khilony.com**.
 
-### Step 1 – Create an Account
+### Step 1 â€“ Create an Account
 
 Create an account or log in to your account.
 
-### Step 2 – Connect WhatsApp
+### Step 2 â€“ Connect WhatsApp
 
 Navigate to:
 
@@ -75,7 +75,7 @@ Wait until the account status becomes:
 Connected
 ```
 
-### Step 3 – Generate API Key
+### Step 3 â€“ Generate API Key
 
 Navigate to:
 
@@ -97,7 +97,7 @@ Required permissions:
 
 Copy the generated API Key.
 
-### Step 4 – Configure ERP
+### Step 4 â€“ Configure ERP
 
 Open **WhatsBridge Settings** and paste the API Key into the **Token** field.
 
