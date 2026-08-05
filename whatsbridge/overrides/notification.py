@@ -244,6 +244,10 @@ class G2VirtuNotification(Notification):
 
     def send(self, doc):
 
+        # Process only when enabled = 0
+        if self.enabled != 0:
+            return
+
         context = {
             "doc": doc,
             "alert": self,
