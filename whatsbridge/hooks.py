@@ -11,9 +11,18 @@ app_license = "MIT"
 doctype_js = {
 	"Notification" : "public/js/notification.js"
 }
-override_doctype_class = {
-	"Notification": "whatsbridge.overrides.notification.G2VirtuNotification"
- }
+from frappe import __version__ as frappe_version
+
+if int(frappe_version.split(".")[0]) >= 16:
+	# Frappe v16+: extend core Notification instead of replacing it
+	extend_doctype_class = {
+		"Notification": ["whatsbridge.overrides.notification.WhatsBridgeNotificationMixin"]
+	}
+else:
+	# Frappe v14 / v15 do not support extend_doctype_class
+	override_doctype_class = {
+		"Notification": "whatsbridge.overrides.notification.G2VirtuNotification"
+	}
 # include js, css files in header of desk.html
 # app_include_css = "/assets/whatsbridge/css/whatsbridge.css"
 # app_include_js = "/assets/whatsbridge/js/whatsbridge.js"

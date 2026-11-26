@@ -230,16 +230,6 @@ Regards,
 
 ---
 
-#### Self Hosting:
-
-1. `bench get-app https://github.com/ggraza/whatsbridge.git`
-2. `bench setup requirements`
-3. `bench build --app whatsbridge`
-4. `bench restart`
-5. `bench --site [your.site.name] install-app whatsbridge`
-
----
-
 #### License
 
 MIT

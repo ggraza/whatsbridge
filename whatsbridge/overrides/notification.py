@@ -20,9 +20,35 @@ from frappe.core.doctype.role.role import (
     get_info_based_on_role,
     get_user_info
 )
+from frappe.utils.jinja import validate_template
 
 
-class G2VirtuNotification(Notification):
+class WhatsBridgeNotificationMixin:
+    """WhatsBridge behaviour for the Notification doctype.
+
+    On Frappe v16+ this mixin is applied with the ``extend_doctype_class``
+    hook, so the core Notification class (and its upstream fixes) stays in
+    place. On older versions it is combined with Notification in
+    ``G2VirtuNotification`` below and applied via ``override_doctype_class``.
+    """
+
+    def validate(self):
+        super().validate()
+
+        if self.channel == "WhatsBridge" and self.message:
+            # Reject unsafe / invalid Jinja before it can ever be rendered
+            validate_template(self.message)
+
+    def render_whatsapp_message(self, context):
+        """Render the Notification message for WhatsApp.
+
+        Security review (frappe-ssti): ``self.message`` is the template of a
+        Notification document, which only System Managers can create/edit.
+        It is validated with ``validate_template`` on save and rendered with
+        Frappe's sandboxed Jinja environment - the same way core Notification
+        renders email/SMS messages.
+        """
+        return frappe.render_template(self.message, context)  # nosemgrep
 
     def get_settings(self):
         return frappe.get_single("WhatsBridge Settings")
@@ -99,7 +125,7 @@ class G2VirtuNotification(Notification):
         token = settings.token
         account = settings.account
 
-        message = frappe.render_template(self.message, context)
+        message = self.render_whatsapp_message(context)
 
         recipients = self.get_receiver_list(doc, context)
 
@@ -171,7 +197,7 @@ class G2VirtuNotification(Notification):
         token = settings.token
         account = settings.account
 
-        message = frappe.render_template(self.message, context)
+        message = self.render_whatsapp_message(context)
 
         document_url = self.create_pdf_file(doc)
 
@@ -293,7 +319,7 @@ class G2VirtuNotification(Notification):
                 "WhatsBridge Notification Error"
             )
 
-        super(G2VirtuNotification, self).send(doc)
+        super().send(doc)
 
     def get_receiver_list(self, doc, context):
         """Return recipients from Notification"""
@@ -354,3 +380,9 @@ class G2VirtuNotification(Notification):
             d for d in receiver_list
             if d
         ]
+
+
+class G2VirtuNotification(WhatsBridgeNotificationMixin, Notification):
+    """Full class override used only on Frappe < v16 (see hooks.py)."""
+
+    pass
